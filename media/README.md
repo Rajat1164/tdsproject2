@@ -69,7 +69,7 @@ Visualization of outliers detected in the dataset:
 ## Distribution of Data
 Distribution plot for the first numerical column in the dataset:
 
-![Distribution](distribution_.png)
+![Distribution](distribution.png)
 
 ## Conclusion
 The analysis provides insights into the dataset's structure, outliers, and correlations.
@@ -88,7 +88,7 @@ Mira embarked on her journey by gathering data from 2,652 transactions within Th
 
 Yet, as with any good story, there were outliers. A staggering 1,216 of the overall ratings stood apart, hinting at products that either dazzled the customers or fell woefully short of their expectations. These extremes were critical to understanding the marketplace's dynamics. Mira noted that while the majority of products scored between 1 and 5, the quality ratings rarely dipped below a 3. This disparity raised questions: What defined a five-star experience? What factors caused satisfaction to plummet to the lowest ratings?
 
-Mira turned her attention to the concept of repeatability, which measured how often customers returned for the same product. With an average repeatability score of just 1.49, the data suggested that many customers were not inclined to revisit their previous choices—a potential warning sign for vendors. What could they do to transform one-time buyers into loyal patrons? Was it the quality of the product, or perhaps the overall customer experience that needed refinement? The correlation between overall satisfaction and quality was strong at 0.83, indicating that improving product quality could lead to happier customers and, ultimately, better repeatability.
+Mira turned her attention to the concept of repeatability, which measured how often customers returned for the same product. With an average repeatability score of just 1.49, the data suggested that many customers were not inclined to revisit their previous choicesâ€”a potential warning sign for vendors. What could they do to transform one-time buyers into loyal patrons? Was it the quality of the product, or perhaps the overall customer experience that needed refinement? The correlation between overall satisfaction and quality was strong at 0.83, indicating that improving product quality could lead to happier customers and, ultimately, better repeatability.
 
 Through her analysis, Mira also recognized the critical role of time. A significant number of entries were missing dates, leaving a gap in understanding how seasons or trends influenced purchasing behavior. With 99 records devoid of dates, these anomalies could represent missed opportunities for vendors to capitalize on seasonal demand or shift their strategies based on customer behavior over time.
 
