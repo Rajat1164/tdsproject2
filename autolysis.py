@@ -265,6 +265,11 @@ import sys
 import pandas as pd
 from analyze_module import analyze_data, detect_outliers, visualize_data, create_readme, question_llm
 
+import os
+import sys
+import pandas as pd
+from analyze_module import analyze_data, detect_outliers, visualize_data, create_readme, question_llm
+
 def main(csv_file, output_dir="."):
     print("Starting the analysis...")  # Debugging line
 
