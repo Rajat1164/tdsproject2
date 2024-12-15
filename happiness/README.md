@@ -135,7 +135,7 @@ Visualization of outliers detected in the dataset:
 ## Distribution of Data
 Distribution plot for the first numerical column in the dataset:
 
-![Distribution](distribution_.png)
+![Distribution](distribution.png)
 
 ## Conclusion
 The analysis provides insights into the dataset's structure, outliers, and correlations.
@@ -150,17 +150,17 @@ In a world increasingly driven by numbers, the quest for happiness often seems l
 
 **The Fabric of Life**
 
-As we delve into the dataset, we find that the average "Life Ladder" score—a measure of subjective well-being—hovered around 5.48. This suggests that, on average, people view their lives as moderately satisfying. However, this average masks a wide range of experiences, from the depths of despair represented by a score as low as 1.28 to the heights of joy reaching 8.02. The data indicates two outliers in the Life Ladder scores, hinting that while some nations flourish, others grapple with profound challenges.
+As we delve into the dataset, we find that the average "Life Ladder" scoreâ€”a measure of subjective well-beingâ€”hovered around 5.48. This suggests that, on average, people view their lives as moderately satisfying. However, this average masks a wide range of experiences, from the depths of despair represented by a score as low as 1.28 to the heights of joy reaching 8.02. The data indicates two outliers in the Life Ladder scores, hinting that while some nations flourish, others grapple with profound challenges.
 
-The correlation between "Log GDP per capita" and "Life Ladder" is striking at 0.78, illuminating the undeniable link between economic prosperity and happiness. This relationship underscores a fundamental truth: as nations grow wealthier, their citizens often find themselves climbing higher on the Life Ladder. Yet, wealth alone is not the sole ingredient in the recipe for happiness. The statistics reveal that social support—a key pillar of well-being—shows a strong correlation with life satisfaction at 0.72. This suggests that the bonds we forge with others, the networks of mutual aid and compassion, are as essential as financial resources in the pursuit of happiness.
+The correlation between "Log GDP per capita" and "Life Ladder" is striking at 0.78, illuminating the undeniable link between economic prosperity and happiness. This relationship underscores a fundamental truth: as nations grow wealthier, their citizens often find themselves climbing higher on the Life Ladder. Yet, wealth alone is not the sole ingredient in the recipe for happiness. The statistics reveal that social supportâ€”a key pillar of well-beingâ€”shows a strong correlation with life satisfaction at 0.72. This suggests that the bonds we forge with others, the networks of mutual aid and compassion, are as essential as financial resources in the pursuit of happiness.
 
 A deeper dive into the dataset reveals the significance of healthy life expectancy, which correlates positively with life satisfaction at 0.71. Health is indeed wealth, and a longer, healthier life allows individuals to savor the joys of existence, free from the burdens of illness. However, the data also presents a sobering reality: the 63 missing values concerning health expectancy remind us that not everyone has equal access to healthcare, which can deeply affect their quality of life.
 
 **The Threads of Freedom and Generosity**
 
-Freedom to make life choices emerges as another critical thread in the tapestry of happiness, with a correlation of 0.54 with life satisfaction. This suggests that the ability to shape one’s destiny—whether through career choices, family planning, or personal aspirations—empowers individuals, fostering a sense of control and purpose. However, in stark contrast, perceptions of corruption, which negatively correlate with life satisfaction at -0.43, reveal that when individuals feel their environments are tainted by dishonesty and unfair practices, their happiness diminishes. The 125 missing values in this category serve as a reminder that trust in institutions can be fragile, and rebuilding it is paramount for societal well-being.
+Freedom to make life choices emerges as another critical thread in the tapestry of happiness, with a correlation of 0.54 with life satisfaction. This suggests that the ability to shape oneâ€™s destinyâ€”whether through career choices, family planning, or personal aspirationsâ€”empowers individuals, fostering a sense of control and purpose. However, in stark contrast, perceptions of corruption, which negatively correlate with life satisfaction at -0.43, reveal that when individuals feel their environments are tainted by dishonesty and unfair practices, their happiness diminishes. The 125 missing values in this category serve as a reminder that trust in institutions can be fragile, and rebuilding it is paramount for societal well-being.
 
-Generosity, while having the weakest correlation with life satisfaction at 0.18, holds its place as a powerful catalyst for positive affect. The data indicates that acts of kindness—no matter how small—can uplift spirits and foster connections. However, the 81 missing values suggest that the willingness to give is not uniformly distributed, hinting at underlying disparities in individual circumstances.
+Generosity, while having the weakest correlation with life satisfaction at 0.18, holds its place as a powerful catalyst for positive affect. The data indicates that acts of kindnessâ€”no matter how smallâ€”can uplift spirits and foster connections. However, the 81 missing values suggest that the willingness to give is not uniformly distributed, hinting at underlying disparities in individual circumstances.
 
 **Conclusion**
 
