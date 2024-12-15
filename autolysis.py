@@ -260,112 +260,63 @@ def question_llm(prompt, context):
 
 
 # Main function that integrates all the steps
-import os
-import sys
-import pandas as pd
-from analyze_module import analyze_data, detect_outliers, visualize_data, create_readme, question_llm
-
-import os
-import sys
-import pandas as pd
-from analyze_module import analyze_data, detect_outliers, visualize_data, create_readme, question_llm
-
-def main(csv_file, output_dir="."):
+def main(csv_file):
     print("Starting the analysis...")  # Debugging line
 
-    # Ensure the output directory exists
-    os.makedirs(output_dir, exist_ok=True)
-
+    # Set the API token as an environment variable
+  
     # Try reading the CSV file with 'ISO-8859-1' encoding to handle special characters
     try:
         df = pd.read_csv(csv_file, encoding='ISO-8859-1')
         print("Dataset loaded successfully!")  # Debugging line
-    except FileNotFoundError:
-        print(f"Error: File '{csv_file}' not found.")
-        sys.exit(1)
     except UnicodeDecodeError as e:
-        print(f"Error reading file '{csv_file}': {e}")
-        sys.exit(1)
+        print(f"Error reading file: {e}")
+        return
 
-    # Perform data analysis
-    try:
-        summary_stats, missing_values, corr_matrix = analyze_data(df)
-        print("Data analysis completed.")
-    except Exception as e:
-        print(f"Error during data analysis: {e}")
-        sys.exit(1)
+    summary_stats, missing_values, corr_matrix = analyze_data(df)
 
-    # Debugging prints
-    print("Summary Statistics:")
+    # Debugging print
+    print("Summary Stats:")
     print(summary_stats)
-    print("Missing Values:")
-    print(missing_values)
 
-    # Detect outliers
-    try:
-        outliers = detect_outliers(df)
-        print("Outliers detected successfully.")
-    except Exception as e:
-        print(f"Error detecting outliers: {e}")
-        sys.exit(1)
+    outliers = detect_outliers(df)
 
     # Debugging print
     print("Outliers detected:")
     print(outliers)
 
-    # Generate visualizations
-    try:
-        heatmap_file, outliers_file, dist_plot_file = visualize_data(corr_matrix, outliers, df, output_dir)
-        print("Visualizations generated and saved.")
-    except Exception as e:
-        print(f"Error generating visualizations: {e}")
-        sys.exit(1)
+    output_dir = "."
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Visualize the data and check output paths
+    heatmap_file, outliers_file, dist_plot_file = visualize_data(corr_matrix, outliers, df, output_dir)
+
+    print("Visualizations saved.")
 
     # Generate the story using the LLM
-    try:
-        api_token = os.getenv("AIPROXY_TOKEN")
-        if not api_token:
-            raise ValueError("API token (AIPROXY_TOKEN) is missing. Set it as an environment variable.")
-        
-        story = question_llm(
-            prompt="Generate a creative and engaging story from the analysis",
-            context=(
-                f"Dataset Analysis:\nSummary Statistics:\n{summary_stats}\n\n"
-                f"Missing Values:\n{missing_values}\n\n"
-                f"Correlation Matrix:\n{corr_matrix}\n\n"
-                f"Outliers:\n{outliers}"
-            )
-        )
-        print("Story generated successfully.")
-    except Exception as e:
-        print(f"Error generating story: {e}")
-        sys.exit(1)
+    story = question_llm("Generate a nice and creative story from the analysis", 
+                         context=f"Dataset Analysis:\nSummary Statistics:\n{summary_stats}\n\nMissing Values:\n{missing_values}\n\nCorrelation Matrix:\n{corr_matrix}\n\nOutliers:\n{outliers}")
 
-    # Create the README file with the analysis and story
-    try:
-        readme_file = create_readme(summary_stats, missing_values, corr_matrix, outliers, output_dir)
-        if readme_file:
+    # Create the README file with the analysis and the story
+    readme_file = create_readme(summary_stats, missing_values, corr_matrix, outliers, output_dir)
+    if readme_file:
+        try:
+            # Append the story to the README.md file
             with open(readme_file, 'a') as f:
                 f.write("## Story\n")
                 f.write(f"{story}\n")
-            print("README file created and story appended successfully.")
-        else:
-            print("Error generating README.md.")
-            sys.exit(1)
-    except Exception as e:
-        print(f"Error writing to README.md: {e}")
-        sys.exit(1)
 
-    # Final Output Messages
-    print("\nAnalysis complete! Results saved in the following files:")
-    print(f"README file: {readme_file}")
-    print(f"Visualizations: {heatmap_file}, {outliers_file}, {dist_plot_file}")
+            print(f"Analysis complete! Results saved in '{output_dir}' directory.")
+            print(f"README file: {readme_file}")
+            print(f"Visualizations: {heatmap_file}, {outliers_file}, {dist_plot_file}")
+        except Exception as e:
+            print(f"Error appending story to README.md: {e}")
+    else:
+        print("Error generating the README.md file.")
 
 if __name__ == "__main__":
+    import sys
     if len(sys.argv) < 2:
-        print("Usage: python autolysis.py <dataset_path> [output_directory]")
+        print("Usage: uv run autolysis.py <dataset_path>")
         sys.exit(1)
-
-    csv_path = sys.argv[1]
-    output_directory = sys.argv[2] if len(sys.argv) > 2 else "."
-    main(csv_path, output_directory)
+    main(sys.argv[1])
